@@ -6,3 +6,58 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+
+/* 
+This allows us basically to start clean, 
+without the brower adding any margins or paddings,
+that we don't want to our elements 
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'lato', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #777;
+    padding: 30px
+}
+
+.header {
+    /* evey point, the height of this box, of this element,
+    should be 95%of the viewport height */
+    height: 95vh;
+    background-image: linear-gradient(
+        to right bottom,
+        rgba(126,213,111,0.8),
+        rgba(40, 180, 131, 0.8)),
+        url(../img/hero.jpg);
+    /* cover: whatever the width of the viewport, or the element,
+    it's always try to fit the element inside of the box */
+    background-size: cover;
+    background-position: top;
+
+    clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
