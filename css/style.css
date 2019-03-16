@@ -139,6 +139,7 @@ body {
         transform: translate(0)
     }
 }
+
 @keyframes moveInRight {
     0% {
         opacity: 0;
@@ -148,6 +149,18 @@ body {
    80% {
        transform: translateX(-10px)
    } 
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
 
     100% {
         opacity: 1;
@@ -171,6 +184,7 @@ when it is an anchor element so it functions as a link */
 
     border-radius: 100px;
     transition: all .2s;
+    position: relative;
 }
 
 .btn:hover {
@@ -190,9 +204,49 @@ so to the link state, not to the hover.*/
     color:#777;
 }
 
+/* And pseudo-elements allow us to style certain parts of elements.
+For example, the after pseudo-element that we're 
+gonna use adds like a virtual element right after the element that we're selecting.
+And we can then style that element. */
+.btn::after {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
 
+    /* And the reference is the first element
+    with the relative position that it can find. 
+    we do not want to be the header*/
+    position: absolute;
+    top:0;
+    left:0;
+    
+    /* So remember the z index defines the position
+    of the elements if they are one on top of another.
+    And so this one has minus one and so it's definitely behind the button.*/
+    z-index: -1;
 
+    transition: all .4s;
+}
 
+.btn-white::after {
+    background-color: #fff;
+}
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn-animated {
+    animation: moveInBottom .5s ease-out .75s;
+
+    /* what this does, is that it will automatically apply
+    the styles up to zero percent before the animation starts. */
+
+    animation-fill-mode: backwards;
+}
 
 
 
