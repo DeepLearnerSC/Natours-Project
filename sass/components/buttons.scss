@@ -1,0 +1,81 @@
+.btn {
+    /* #pseudo-class link are a special state of a selector. 
+    so this links here is a state of the button selector
+    when it is an anchor element so it functions as a link */
+    &:link, 
+    &:visited {
+        text-transform: uppercase;
+        /* get rid of blue color */
+        text-decoration: none;
+        padding: 1.5rem 4rem;
+        
+        /* this way the box model works on this element as if
+        was just a normal block element */
+        display: inline-block;
+
+        border-radius: 10rem;
+        transition: all .2s;
+        position: relative;
+        font-size: 1.6rem;
+    }
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 1rem 2rem rgba($color-black,.2);
+        &::after {
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
+    }
+
+    /* this minus one pixel is in relation to the initial state, 
+    so to the link state, not to the hover.*/
+    &:active {
+        transform: translateY(-1px);
+        box-shadow: 0 .5rem 1rem rgba($color-black,.2);
+    }
+
+    &--white {
+        background-color: $color-white;
+        color:$color-gray-dark;
+
+        &::after {
+            background-color: $color-white;
+        }
+    }
+
+    /* And pseudo-elements allow us to style certain parts of elements.
+    For example, the after pseudo-element that we're 
+    gonna use adds like a virtual element right after the element that we're selecting.
+    And we can then style that element. */
+    &::after {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 10rem;
+
+        /* And the reference is the first element
+        with the relative position that it can find. 
+        we do not want to be the header*/
+        position: absolute;
+        top:0;
+        left:0;
+        
+        /* So remember the z index defines the position
+        of the elements if they are one on top of another.
+        And so this one has minus one and so it's definitely behind the button.*/
+        z-index: -1;
+
+        transition: all .4s;
+    }
+
+    &--animated {
+        animation: moveInBottom .5s ease-out .75s;
+
+        /* what this does, is that it will automatically apply
+        the styles up to zero percent before the animation starts. */
+
+        animation-fill-mode: backwards;
+    }
+}
