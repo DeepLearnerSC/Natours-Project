@@ -11,87 +11,6 @@ This allows us basically to start clean,
 without the brower adding any margins or paddings,
 that we don't want to our elements 
 */
-*,
-*::after,
-*::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit; }
-
-html {
-  /* normally its 16px, so if you want to set root font size to 10px
-    then multiply .625 which is 10 / 16 */
-  font-size: 62.5%; }
-
-/* 1 rem is exactly the root font size */
-body {
-  font-family: 'lato', sans-serif;
-  font-weight: 400;
-  /* font-size: 16px; */
-  line-height: 1.7;
-  color: #777;
-  /* 30px=>3rem */
-  padding: 3rem;
-  box-sizing: border-box; }
-
-/* header si the origin, parent of logo-box */
-.header {
-  /* evey point, the height of this box, of this element,
-    should be 95%of the viewport height */
-  height: 95vh;
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
-  /* cover: whatever the width of the viewport, or the element,
-    it's always try to fit the element inside of the box */
-  background-size: cover;
-  background-position: top;
-  position: relative;
-  clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
-  /* these 40% and 60%, thery are in relation to the parent element */ }
-  .header__logo-box {
-    position: absolute;
-    top: 4rem;
-    left: 4rem; }
-  .header__logo {
-    height: 3.5rem; }
-  .header__logo:hover {
-    animation: moveInRight 1s ease-out; }
-  .header__text-box {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    /* background-color: red; */
-    /* if it's text we want it to be at the center
-        of this box, all we have to do is to set the text box, 
-        with the following */
-    text-align: center; }
-
-.heading-primary {
-  color: #fff;
-  text-transform: uppercase;
-  /* This backface-visibility property determines
-    if the back part of the element when we transform it
-    is visible or hidden for the user. It fixes 'SHAKING' */
-  backface-visibility: hidden;
-  margin-bottom: 6rem; }
-  .heading-primary--main {
-    display: block;
-    font-size: 6rem;
-    font-weight: 700;
-    letter-spacing: 3.5rem;
-    animation-name: moveInLeft;
-    animation-duration: 1s;
-    /* try ease-in too. look for mdn */
-    animation-timing-function: ease-out;
-    /* animation-iteration-count: 3;
-        animation-delay: 3s; */ }
-  .heading-primary--sub {
-    display: block;
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 1.75rem;
-    animation: moveInRight 1s ease-out; }
-
 @keyframes moveInLeft {
   0% {
     opacity: 0;
@@ -122,6 +41,57 @@ body {
   100% {
     opacity: 1;
     transform: translate(0); } }
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  /* normally its 16px, so if you want to set root font size to 10px
+    then multiply .625 which is 10 / 16 */
+  font-size: 62.5%; }
+
+/* 1 rem is exactly the root font size */
+body {
+  box-sizing: border-box; }
+
+body {
+  font-family: 'lato', sans-serif;
+  font-weight: 400;
+  /* font-size: 16px; */
+  line-height: 1.7;
+  color: #777;
+  /* 30px=>3rem */
+  padding: 3rem; }
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  /* This backface-visibility property determines
+    if the back part of the element when we transform it
+    is visible or hidden for the user. It fixes 'SHAKING' */
+  backface-visibility: hidden;
+  margin-bottom: 6rem; }
+  .heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 700;
+    letter-spacing: 3.5rem;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    /* try ease-in too. look for mdn */
+    animation-timing-function: ease-out;
+    /* animation-iteration-count: 3;
+        animation-delay: 3s; */ }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    animation: moveInRight 1s ease-out; }
 
 .btn {
   /* #pseudo-class link are a special state of a selector. 
@@ -181,3 +151,48 @@ body {
     /* what this does, is that it will automatically apply
         the styles up to zero percent before the animation starts. */
     animation-fill-mode: backwards; }
+
+/* header si the origin, parent of logo-box */
+.header {
+  /* evey point, the height of this box, of this element,
+    should be 95%of the viewport height */
+  height: 95vh;
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  /* cover: whatever the width of the viewport, or the element,
+    it's always try to fit the element inside of the box */
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+  /* these 40% and 60%, thery are in relation to the parent element */ }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__logo:hover {
+    animation: moveInRight 1s ease-out; }
+  .header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* background-color: red; */
+    /* if it's text we want it to be at the center
+        of this box, all we have to do is to set the text box, 
+        with the following */
+    text-align: center; }
+
+.row {
+  max-width: 114rem;
+  background-color: #eee;
+  margin: 0 auto; }
+  .row:not(:last-child) {
+    margin-bottom: 8rem; }
+  .row .col-1-of-2 {
+    width: calc( (100% - 6rem) / 2);
+    background-color: orangered;
+    float: left; }
+    .row .col-1-of-2:not(:last-child) {
+      margin-right: 6rem; }
