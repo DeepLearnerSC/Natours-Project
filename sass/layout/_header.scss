@@ -1,0 +1,46 @@
+/* header si the origin, parent of logo-box */
+.header {
+    /* evey point, the height of this box, of this element,
+    should be 95%of the viewport height */
+    height: 95vh;
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light,0.8),
+        rgba($color-primary-dark, 0.8)),
+        url(../img/hero.jpg);
+    /* cover: whatever the width of the viewport, or the element,
+    it's always try to fit the element inside of the box */
+    background-size: cover;
+    background-position: top;
+    position: relative;
+
+    clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+
+    &__logo-box  {
+        position: absolute;
+        top: 4rem;
+        left: 4rem;
+    }
+
+    &__logo {
+        height: 3.5rem;
+    }
+    
+    &__logo:hover {
+        animation: moveInRight 1s ease-out;
+    }
+
+    /* these 40% and 60%, thery are in relation to the parent element */
+    &__text-box {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        /* background-color: red; */
+
+        /* if it's text we want it to be at the center
+        of this box, all we have to do is to set the text box, 
+        with the following */
+        text-align: center;
+    }
+}
