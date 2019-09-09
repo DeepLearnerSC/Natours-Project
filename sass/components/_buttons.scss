@@ -44,6 +44,15 @@
         }
     }
 
+    &--green {
+        background-color: $color-primary;
+        color: $color-white;
+
+        &::after {
+            background-color: $color-primary;
+        }
+    }
+
     /* And pseudo-elements allow us to style certain parts of elements.
     For example, the after pseudo-element that we're 
     gonna use adds like a virtual element right after the element that we're selecting.
