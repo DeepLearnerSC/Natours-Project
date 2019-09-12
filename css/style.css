@@ -122,6 +122,20 @@ body {
 .u-margin-top-huge {
   margin-top: 10rem !important; }
 
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: .15;
+  overflow: hidden; }
+  .bg-video__content {
+    height: 100%;
+    width: 100%;
+    object-fit: cover; }
+
 .btn {
   /* #pseudo-class link are a special state of a selector. 
     so this links here is a state of the button selector
