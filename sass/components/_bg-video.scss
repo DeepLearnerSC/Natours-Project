@@ -1,0 +1,22 @@
+.bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+
+    // one layer behind
+    z-index: -1;
+    opacity: .15;
+    // when something overflows our element 
+    // we do the following
+    overflow: hidden;
+
+    &__content { 
+        height: 100%;
+        width: 100%;
+        //occupy entire section while maintaing the aspect ratio
+        // just like background color 
+        object-fit: cover; // try 'fill' and see the difference
+    }
+}
