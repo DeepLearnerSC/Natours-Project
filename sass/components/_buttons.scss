@@ -1,4 +1,5 @@
 .btn {
+    &,
     /* #pseudo-class link are a special state of a selector. 
     so this links here is a state of the button selector
     when it is an anchor element so it functions as a link */
@@ -17,6 +18,10 @@
         transition: all .2s;
         position: relative;
         font-size: 1.6rem;
+
+        //Change for the <button> element
+        border: none;
+        cursor: pointer;
     }
 
     &:hover {
@@ -30,7 +35,9 @@
 
     /* this minus one pixel is in relation to the initial state, 
     so to the link state, not to the hover.*/
-    &:active {
+    &:active,
+    &:focus {
+        outline:none;
         transform: translateY(-1px);
         box-shadow: 0 .5rem 1rem rgba($color-black,.2);
     }
