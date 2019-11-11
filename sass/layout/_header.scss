@@ -1,52 +1,71 @@
 /* header si the origin, parent of logo-box */
 .header {
-    /* evey point, the height of this box, of this element,
-    should be 95%of the viewport height */
+  /* evey point, the height of this box, of this element,
+    should be 85%of the viewport height */
+  height: 85vh;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.8),
+      rgba($color-primary-dark, 0.8)
+    ),
+    url(../img/hero-small.jpg);
+  /* cover: whatever the width of the viewport, or the element,
+    it's always try to fit the element inside of the box */
+  background-size: cover;
+  background-position: top;
+  position: relative;
+
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+
+  @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
     height: 95vh;
+  }
+
+  @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+    only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+    only screen and (min-width: 125em) {
+    //   @media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em) {
     background-image: linear-gradient(
         to right bottom,
-        rgba($color-primary-light,0.8),
-        rgba($color-primary-dark, 0.8)),
-        url(../img/hero.jpg);
-    /* cover: whatever the width of the viewport, or the element,
-    it's always try to fit the element inside of the box */
-    background-size: cover;
-    background-position: top;
-    position: relative;
+        rgba($color-primary-light, 0.8),
+        rgba($color-primary-dark, 0.8)
+      ),
+      url(../img/hero.jpg);
+  }
 
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+  @include respond(phone) {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+  }
 
-    @include respond(phone) {
-        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
-        clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
-    }
-    
-    &__logo-box  {
-        position: absolute;
-        top: 4rem;
-        left: 4rem;
-    }
+  &__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+  }
 
-    &__logo {
-        height: 3.5rem;
-    }
-    
-    &__logo:hover {
-        animation: moveInRight 1s ease-out;
-    }
+  &__logo {
+    height: 3.5rem;
+  }
 
-    /* these 40% and 60%, thery are in relation to the parent element */
-    &__text-box {
-        position: absolute;
-        top: 40%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        /* background-color: red; */
+  &__logo:hover {
+    animation: moveInRight 1s ease-out;
+  }
 
-        /* if it's text we want it to be at the center
+  /* these 40% and 60%, thery are in relation to the parent element */
+  &__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* background-color: red; */
+
+    /* if it's text we want it to be at the center
         of this box, all we have to do is to set the text box, 
         with the following */
-        text-align: center;
-    }
+    text-align: center;
+  }
 }
